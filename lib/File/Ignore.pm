@@ -9,11 +9,11 @@ File::Ignore - Ignore files that are good to ignore
 
 =head1 VERSION
 
-Version 0.020
+Version 0.021
 
 =cut
 
-our $VERSION = '0.020';
+our $VERSION = '0.021';
 
 
 =head1 SYNOPSIS
@@ -95,6 +95,7 @@ Returns a list of what is ignoreable. Currently, this is:
     *.ln         .*\.ln        rsync              
     core         core          core rsync         
     .svn/        \.svn         revision rsync svn
+    .sw[p-z]     \.sw[p-z]     swap vim  
 
 The above list was taken from C<rsync -C>
 
@@ -220,6 +221,7 @@ my @_ignore;
         *.ln:rsync
         core:core,rsync
         .svn/:revision,svn,rsync
+        .sw[p-z]:vim,swap
     ));
 }
 
